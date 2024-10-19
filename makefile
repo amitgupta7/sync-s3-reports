@@ -10,7 +10,7 @@ preflight:
 	echo "aws-cli is installed."
 sync-s3: preflight
 	mkdir -p dataDir
-	aws s3 sync s3://securiti-cx-exports/cx/ dataDir
+	aws s3 sync --size-only s3://securiti-cx-exports/cx/ dataDir
 auth: preflight
 	mkdir -p backup 
 	if [ -d ~/.aws ]; then echo "Backing up ~/.aws"; cp -r ~/.aws backup/ && rm -R ~/.aws; fi
